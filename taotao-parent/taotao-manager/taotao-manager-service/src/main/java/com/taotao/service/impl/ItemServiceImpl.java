@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.taotao.common.pojo.EasyUiDateGridResult;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -26,6 +29,18 @@ public class ItemServiceImpl implements ItemService{
 			return item;
 		}
 		return null;
+	}
+	
+	@Override
+	public EasyUiDateGridResult getItemList(int page, int rows) {
+		TbItemExample example = new TbItemExample();
+		PageHelper.startPage(page, rows);
+		List<TbItem> list = itemMapper.selectByExample(example);
+		EasyUiDateGridResult result = new EasyUiDateGridResult();
+		result.setRows(list);
+		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
+		result.setTotal(pageInfo.getTotal());
+		return result;
 	}
 
 }

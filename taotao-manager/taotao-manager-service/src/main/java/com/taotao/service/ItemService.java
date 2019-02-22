@@ -10,5 +10,7 @@ public interface ItemService {
 	
 	EasyUiDateGridResult getItemList(int page,int rows);
 	
-	TaotaoResult createItem(TbItem item);
+	TaotaoResult createItem(TbItem item,String desc) throws Exception;
+
+	TaotaoResult updateItem(TbItem item, String desc) throws Exception;
 }

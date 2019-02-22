@@ -30,13 +30,20 @@ public class ItemController {
 		EasyUiDateGridResult result = ItemService.getItemList(page, rows);
 		return result;
 	}
+	
 	@RequestMapping(value="/item/save",method=RequestMethod.POST)
 	@ResponseBody
-	public TaotaoResult createItem(TbItem item) {
-		TaotaoResult result = ItemService.createItem(item);
+	public TaotaoResult createItem(TbItem item,String desc) throws Exception {
+		TaotaoResult result = ItemService.createItem(item,desc);
 		return result;
 	}
 	
+	@RequestMapping(value="/rest/item/update",method=RequestMethod.POST)
+	@ResponseBody
+	public TaotaoResult updateItem(TbItem item,String desc) throws Exception {
+		TaotaoResult result = ItemService.updateItem(item,desc);
+		return result;
+	}
 }
 
 

@@ -35,6 +35,13 @@
 	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
 	         	</ul>
          	</li>
+         	<li>
+         		<span>食材表管理</span>
+         		<ul>
+	         		<li data-options="attributes:{'url':'goods-add'}">新增食材</li>
+	         		<li data-options="attributes:{'url':'goods-list'}">查询食材</li>
+	         	</ul>
+         	</li>
          </ul>
     </div>
     <div data-options="region:'center',title:''">
